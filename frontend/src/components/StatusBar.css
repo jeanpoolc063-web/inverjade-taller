@@ -1,0 +1,179 @@
+.status-bar-container {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.status-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.status-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-label {
+  font-weight: 600;
+  color: #4b5563;
+  font-size: 14px;
+}
+
+.status-value {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.status-percentage {
+  background: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #3b82f6;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Progress Bar */
+.status-bar-wrapper {
+  margin-bottom: 20px;
+}
+
+.status-bar-track {
+  width: 100%;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.status-bar-progress {
+  height: 100%;
+  background: #3b82f6;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 4px;
+}
+
+/* Steps */
+.status-steps {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.status-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.status-step-active {
+  opacity: 1;
+}
+
+.status-step-current {
+  transform: scale(1.1);
+}
+
+.status-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.status-step-current .status-dot {
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2), 0 2px 8px rgba(0, 0, 0, 0.15);
+  transform: scale(1.15);
+}
+
+.status-checkmark {
+  display: inline-block;
+  font-size: 18px;
+}
+
+.status-name {
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  color: #4b5563;
+  text-transform: capitalize;
+  word-break: break-word;
+  max-width: 70px;
+}
+
+.status-step-current .status-name {
+  font-weight: 700;
+  color: #1e40af;
+}
+
+.status-actions {
+  margin-top: 16px;
+  text-align: center;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .status-bar-container {
+    padding: 16px;
+  }
+
+  .status-bar-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .status-steps {
+    gap: 4px;
+  }
+
+  .status-dot {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  .status-name {
+    font-size: 11px;
+    max-width: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .status-bar-container {
+    padding: 12px;
+  }
+
+  .status-steps {
+    flex-wrap: wrap;
+  }
+
+  .status-step {
+    flex: 0 1 calc(50% - 4px);
+  }
+
+  .status-dot {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+}
