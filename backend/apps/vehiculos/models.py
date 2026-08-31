@@ -16,6 +16,8 @@ class Vehiculo(models.Model):
         ('camion', 'Camión'),
         ('otro', 'Otro'),
     ])
+    foto = models.ImageField(upload_to='vehiculos/%Y/%m/', null=True, blank=True, help_text='Foto del vehículo')
+    foto_daño = models.ImageField(upload_to='vehiculos/daños/%Y/%m/', null=True, blank=True, help_text='Foto del daño')
     estado = models.CharField(max_length=20, default='activo', choices=[
         ('activo', 'Activo'),
         ('inactivo', 'Inactivo'),

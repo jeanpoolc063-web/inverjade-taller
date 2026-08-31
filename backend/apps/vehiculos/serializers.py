@@ -8,7 +8,7 @@ class VehiculoSerializer(serializers.ModelSerializer):
         model = Vehiculo
         fields = [
             'id', 'cliente', 'cliente_nombre', 'placa', 'marca',
-            'modelo', 'ano', 'vin', 'color', 'tipo', 'estado',
-            'fecha_registro', 'fecha_actualizacion'
+            'modelo', 'ano', 'vin', 'color', 'tipo', 'foto', 'foto_daño',
+            'estado', 'fecha_registro', 'fecha_actualizacion'
         ]
         read_only_fields = ['fecha_registro', 'fecha_actualizacion']

@@ -11,8 +11,8 @@ class OrdenTrabajoSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'numero_orden', 'cliente', 'cliente_nombre', 'vehiculo',
             'vehiculo_info', 'empleado', 'empleado_nombre', 'descripcion',
-            'estado', 'costo_estimado', 'costo_final', 'fecha_inicio',
-            'fecha_vencimiento', 'fecha_completacion', 'observaciones',
+            'estado', 'costo_estimado', 'costo_final', 'foto_antes', 'foto_después',
+            'fecha_inicio', 'fecha_vencimiento', 'fecha_completacion', 'observaciones',
             'fecha_registro', 'fecha_actualizacion'
         ]
         read_only_fields = ['numero_orden', 'fecha_registro', 'fecha_actualizacion', 'fecha_inicio']

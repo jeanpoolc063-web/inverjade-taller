@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import ordenesService from '../services/ordenesService'
+import GaleriaOrdenes from '../components/GaleriaOrdenes'
 
 function Ordenes() {
   const [ordenes, setOrdenes] = useState([])
   const [cargando, setCargando] = useState(false)
   const [error, setError] = useState(null)
   const [formularioVisible, setFormularioVisible] = useState(false)
+  const [ordenSeleccionada, setOrdenSeleccionada] = useState(null)
+  const [mostrarGaleria, setMostrarGaleria] = useState(false)
   const [formulario, setFormulario] = useState({
     cliente: '',
     vehiculo: '',
@@ -64,6 +67,29 @@ function Ordenes() {
       'cancelada': 'bg-red-100 text-red-800',
     }
     return colores[estado] || 'bg-gray-100 text-gray-800'
+  }
+
+  if (mostrarGaleria && ordenSeleccionada) {
+    return (
+      <div className="ordenes">
+        <div className="mb-4">
+          <button
+            onClick={() => {
+              setMostrarGaleria(false)
+              setOrdenSeleccionada(null)
+            }}
+            className="btn-primary bg-gray-600 hover:bg-gray-700"
+          >
+            ← Volver a Órdenes
+          </button>
+        </div>
+        <div className="card">
+          <h2 className="text-2xl font-bold mb-2">Orden #{ordenSeleccionada.numero_orden}</h2>
+          <p className="text-gray-600 mb-4">{ordenSeleccionada.cliente_nombre}</p>
+          <GaleriaOrdenes ordenId={ordenSeleccionada.id} />
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -172,6 +198,15 @@ function Ordenes() {
                   </td>
                   <td>${orden.costo_estimado?.toLocaleString()}</td>
                   <td>
+                    <button 
+                      onClick={() => {
+                        setOrdenSeleccionada(orden)
+                        setMostrarGaleria(true)
+                      }}
+                      className="text-purple-600 mr-2 hover:underline text-sm"
+                    >
+                      Galería
+                    </button>
                     <button className="text-blue-600 mr-2 hover:underline text-sm">Ver</button>
                     <button className="text-green-600 hover:underline text-sm">Editar</button>
                   </td>

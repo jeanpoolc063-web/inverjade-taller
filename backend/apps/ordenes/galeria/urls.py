@@ -1,11 +1,10 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import OrdenTrabajoViewSet
+from .views import FotoOrdenViewSet
 
 router = DefaultRouter()
-router.register(r'', OrdenTrabajoViewSet)
+router.register(r'', FotoOrdenViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('fotos/', include('apps.ordenes.galeria.urls')),
 ]

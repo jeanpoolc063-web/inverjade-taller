@@ -16,6 +16,7 @@ class Cliente(models.Model):
     email = models.EmailField()
     direccion = models.CharField(max_length=255)
     ciudad = models.CharField(max_length=100)
+    foto = models.ImageField(upload_to='clientes/%Y/%m/', null=True, blank=True, help_text='Foto del cliente')
     estado = models.CharField(max_length=20, default='activo', choices=[('activo', 'Activo'), ('inactivo', 'Inactivo')])
     fecha_registro = models.DateTimeField(auto_now_add=True)
     fecha_actualizacion = models.DateTimeField(auto_now=True)

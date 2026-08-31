@@ -20,6 +20,8 @@ class OrdenTrabajo(models.Model):
     estado = models.CharField(max_length=20, choices=ESTADO_CHOICES, default='pendiente')
     costo_estimado = models.DecimalField(max_digits=12, decimal_places=2)
     costo_final = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+    foto_antes = models.ImageField(upload_to='ordenes/antes/%Y/%m/', null=True, blank=True, help_text='Foto del vehículo antes del trabajo')
+    foto_después = models.ImageField(upload_to='ordenes/después/%Y/%m/', null=True, blank=True, help_text='Foto del vehículo después del trabajo')
     fecha_inicio = models.DateTimeField(auto_now_add=True)
     fecha_vencimiento = models.DateField(null=True, blank=True)
     fecha_completacion = models.DateTimeField(null=True, blank=True)
